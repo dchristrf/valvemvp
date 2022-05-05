@@ -1,0 +1,54 @@
+{
+    "name": "with-love-from-l2",
+    "description": "Monorepo for L2 launch containing the UI",
+    "private": true,
+    "workspaces": [
+        "packages/*",
+        "apps/*"
+    ],
+    "scripts": {
+        "dev": "yarn turbo run dev",
+        "dev:ui": "yarn workspace l2-ui run dev"
+    },
+    "devDependencies": {
+        "turbo": "^1.0.26"
+    },
+    "turbo": {
+        "baseBranch": "origin/main",
+        "pipeline": {
+            "build": {
+                "dependsOn": [
+                    "^build"
+                ],
+                "outputs": [
+                    ".next/**"
+                ]
+            },
+            "dev": {
+                "cache": false
+            }
+        }
+    },
+    "dependencies": {
+        "@react-hook/window-size": "^3.0.7",
+        "@thirdweb-dev/react": "^2.0.5",
+        "@thirdweb-dev/sdk": "^2.0.34",
+        "@tlon/sigil-js": "^1.4.5",
+        "airtable": "^0.11.1",
+        "image-map": "^2.0.1",
+        "jquery": "^3.6.0",
+        "next": "^12.0.8",
+        "pixelate": "^0.0.5",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "react-fast-marquee": "^1.2.1",
+        "react-is": "^18.0.0",
+        "react-medium-image-zoom": "^4.3.5",
+        "react-pdf": "^5.6.0",
+        "react-select": "^5.3.0",
+        "react-use": "^17.3.2",
+        "styled-components": "^5.3.3",
+        "swr": "^1.1.1",
+        "web3": "^1.7.3"
+    }
+}
